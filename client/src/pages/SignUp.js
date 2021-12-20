@@ -1,8 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
 import hashPassword from '../utils/hashPassword';
 import appConfig from '../app.config';
+=======
+import hashPassword from '../utils/hashPassword';
+>>>>>>> 3565462 (WIP: Modify components)
 
 function SignUpPage({ setUserState }) {
   const navigate = useNavigate();
@@ -12,6 +16,10 @@ function SignUpPage({ setUserState }) {
     name: '',
     pwCheck: '',
   });
+<<<<<<< HEAD
+=======
+  const API_SERVER = '';
+>>>>>>> 3565462 (WIP: Modify components)
 
   const controlInputValue = key => (e) => {
     setuserInput({ ...userInput, [key]: e.target.value });
@@ -19,6 +27,7 @@ function SignUpPage({ setUserState }) {
 
   const onClickSignUp = () => {
     const { id, pw, name, pwCheck } = userInput;
+<<<<<<< HEAD
 
     if (!id || !pw || !name || !pwCheck) {
       console.log('모든 칸을 채워야 합니다');
@@ -41,6 +50,36 @@ function SignUpPage({ setUserState }) {
       });
   }
       // TODO: exception handling
+=======
+    // // TODO: 해쉬작업
+
+    if (!id || !pw || !name || !pwCheck) {
+      console.log('모든 칸을 채워야 합니다');
+      return;
+    }
+
+    hashPassword(pw)
+      .then((pwHash) => {
+        hashPassword(pwCheck)
+          .then((pwCheckHash) => {
+            if (pwHash === pwCheckHash) {
+              console.log('사용가능');
+            } else {
+              console.log('비밀번호가 다릅니다');
+            }
+          });
+
+        //   axios.post(API_SERVER,{
+        //   id,
+        //   pw_hash,
+        //   name
+        //   })
+        //   .then(res => {
+        //   console.log('가입성공');
+        //   })
+      });
+  };
+>>>>>>> 3565462 (WIP: Modify components)
 
   return (
     <div className="SignUpContainer">
