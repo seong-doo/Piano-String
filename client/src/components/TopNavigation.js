@@ -9,6 +9,7 @@ const TopNavigation = ({ controlLogin, isLogin }) => (
     {isLogin
       ? (
         <ul className="TopNavigation_manu">
+          <li>Announcement</li>
           <li>Post</li>
           <li>MyPage</li>
           <li onClick={controlLogin} onKeyDown={controlLogin}>Logout</li>
